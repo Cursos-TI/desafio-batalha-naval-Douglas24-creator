@@ -8,27 +8,34 @@ int main() {
     // Nível Novato - Posicionamento dos Navios
     char linha[] = {'A','B','C','D','E','F','G','H','I','J'};
     int tabuleiro[10][10];
-    int numeros;
+    int i, j;
 
-    printf("  Batalha Naval\n");
-    printf("  ");
-    for(int j = 0; j < 10; j++){
-        printf("%c", linha[j]);
+   // Inicializa o tabuleiro com 0 (água)
+    for(i = 0; i < 10; i++){
+        for(j = 0; j < 10; j++){
+            tabuleiro[i][j] = 0;
+        }
+    }
+
+    // Título do jogo
+    printf("  Batalha Naval\n\n");
+
+    // Impressão do cabeçalho com letras A–J
+    printf("   ");
+    for(j = 0; j < 10; j++){
+        printf(" %c", linha[j]);
     }
     printf("\n");
 
-    for(int i = 0; i < 10; i++){
-        for(int j = 0; j < 10; j++){
-        tabuleiro[i][j] = 0;
-          while(numeros <= i){
-          numeros++;
-          printf("%d", numeros);
-          }
-        printf("%d", tabuleiro[i][j]);
+    // Impressão do tabuleiro com numeração de linhas
+    for(i = 0; i < 10; i++){
+        printf("%2d ", i + 1); // Linhas numeradas de 1 a 10
+        for(j = 0; j < 10; j++){
+            printf(" %d", tabuleiro[i][j]); // Mostra o valor (0 = água)
         }
         printf("\n");
     }
-   
+
 
     // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
     // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
